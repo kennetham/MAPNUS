@@ -2239,7 +2239,7 @@
 
                 $json_obj = json_decode($data, true);
               ?>
-              <a href="#visitorslodge" onclick="locate_on_map(<?php echo $json_obj['lat']; ?>, <?php echo $json_obj['lon']; ?>, 'Visitors' Lodge');">
+              <a href="#visitorslodge" onclick="locate_on_map(<?php echo $json_obj['lat']; ?>, <?php echo $json_obj['lon']; ?>, 'Visitors\' Lodge');">
               <i class="icon-home icon-large"></i>Visitors' Lodge</a>
             </li>
             <li id="#computercenter" data-submenu-id="submenu-computercenter">
@@ -2644,7 +2644,7 @@
 
                 $json_obj = json_decode($data, true);
               ?>
-              <a href="#utwendys" onclick="locate_on_map(<?php echo $json_obj['lat']; ?>, <?php echo $json_obj['lon']; ?>, 'Wendy's @ UTown');">
+              <a href="#utwendys" onclick="locate_on_map(<?php echo $json_obj['lat']; ?>, <?php echo $json_obj['lon']; ?>, 'Wendy\'s @ UTown');">
               <i class="icon-map-marker icon-large"></i>Wendy's @ UTown</a>
             </li>
             <li id="#utspicetable" data-submenu-id="submenu-utspicetable">
@@ -2674,7 +2674,7 @@
 
                 $json_obj = json_decode($data, true);
               ?>
-              <a href="#uthwangskr" onclick="locate_on_map(<?php echo $json_obj['lat']; ?>, <?php echo $json_obj['lon']; ?>, 'Hwang's Korean Restaurant');">
+              <a href="#uthwangskr" onclick="locate_on_map(<?php echo $json_obj['lat']; ?>, <?php echo $json_obj['lon']; ?>, 'Hwang\'s Korean Restaurant');">
               <i class="icon-map-marker icon-large"></i>Hwang's Korean Restaurant</a>
             </li>
             <li id="#utsaporeit" data-submenu-id="submenu-utsaporeit">

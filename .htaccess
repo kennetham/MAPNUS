@@ -18,8 +18,8 @@ mod_gzip_item_exclude mime ^image/.*
 mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
 </ifModule>
 
-RewriteCond %{HTTP_REFERER} !^http://mapnus.cloudapp.net/.*$	  [NC]
-RewriteCond %{HTTP_REFERER} !^http://mapnus.cloudapp.net$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://www.mapnus.cloudapp.net/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://www.mapnus.cloudapp.net$	   [NC]
+RewriteCond %{HTTP_REFERER} !^http://mapnus.azurewebsites.net/.*$	  [NC]
+RewriteCond %{HTTP_REFERER} !^http://mapnus.azurewebsites.net$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.mapnus.azurewebsites.net/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.mapnus.azurewebsites.net$	   [NC]
 RewriteRule .*\.(jpg|jpeg|gif|png|bmp)$ - [F,NC]
