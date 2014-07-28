@@ -1,0 +1,82 @@
+@-moz-keyframes leaflet-usermarker-pulsate {
+    from {
+        -moz-transform: scale(0.5);
+        opacity: 1.0;
+    }
+    95% {
+        -moz-transform: scale(1.3);
+        opacity: 0;
+    }
+    to {
+        -moz-transform: scale(0.7);
+        opacity: 0;
+    }
+}
+@-webkit-keyframes leaflet-usermarker-pulsate {
+    from {
+        -webkit-transform: scale(0.5);
+        opacity: 1.0;
+    }
+    95% {
+        -webkit-transform: scale(1.3);
+        opacity: 0;
+    }
+    to {
+        -webkit-transform: scale(0.7);
+        opacity: 0;
+    }
+}
+@keyframes leaflet-usermarker-pulsate {
+    from {
+        transform: scale(0.5);
+        opacity: 1.0;
+    }
+    95% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+    to {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+}
+
+.leaflet-usermarker,
+.leaflet-usermarker-small {
+    width: 34px;
+    height: 34px;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADwElEQVRYR+2WW2gUVxjHv3Mm2exms8nuzKKJT4HW4g0vVLygsdUYikIqohEUEUUotlCwlFKDCqIGIqj4lL5oqBdQo6CUgKT1LgpqVBQvIJqiDyaxe0t2m2QvM8f/2bhxYpLd2RjJS87D7lzO9/9+321mGI3yYqPsn8YAhpWB/Pz8EpvDUcEZ+4IMLMZaYt3dF7u6ulqzLWlWAC6Xy2uz2fYTY+sZY4rZmRBCF4ZxPBAI/IrrAasglgHcbncp5/wKV5TSdOK6rreQEIuDweBrKxBWAXJVVW2G8+kpUSQ+gixclueIvhxwztQ9XYj7QZ9vLs4TmSAsAXi83i0KY3+kxJDq29Fo9PtIJPJWXnM6ncUOh6MRpfm6D1DXN6Mc9SMCgOhvIPqF76MVsWh0Ujgcfm4WL1DVqXZFeWyCvOT3+5eOCIDm9fqRbjUJYBivIDxoH6he7xtMRonchxK1Bfz+5HG6ZakEqqa1osbFSWFd9yG14yTLR8L8Pag7E6jZzhIAhP9CBir7miyRWIcuP2kWcmvahhzOj5p64CxAq0YmA6q6Cj1wtk/cMHrQ+tt6enoacI3Z7fa1grEahfM8E2QlIBtHBAAiHI34wDyG6YQxls1+n2/OIGUaYGapBNLK4/EsBMB1lCKtjXwixmOx+Z2dnXczRS/vWwaQm9HlB9Hlv6SN3jBqMSXVVpxnDQCDPI+q3lYUZcZgDhD9XaR+Ae7FPxcA4YU0Kddmu4exzDc7gfNwIh6f2dHR0WLV+XAykNT2aNqP6Pi6fgCGsQmp/zMb59kD/P5PEe2r6JCGmqZdZJyXy2NDiAsBn2950vnWc246tDJkFSRzE0pBp2sF6fGn1Bl+RnVrIlIcpfjKlpf3RPpH6if3pf6nhgKMzDTiNIXi9nNUWxZMB5MeYEfTEmLKaYrHl1PtsgFjhak4DPEEot8ywEn13wsoh5/HA6uK9lZcHQpiaIAfmnOpONROjHvwAviN9iw9gKnt9/zHR8osmYFQKPSwvwPBaOelauK8hoT+Hz0LltCZNfpgEEMDfLsrhxaVteEdryUNhX6ThHKMotFr9G/4xQDBqgaFviyaSIryDTZvxP+8XjvRTrvLJ0jQ7ADk7u1Ni4jnnCHO5NvvwzJEDCeAo3CvE3Lhtxj7bP32Cb2VdGM11Xx3K/sSpCx+PlFIReM3I51r4Wk2SpK+bwxh4KPhDsp1igKBI6mmHT6A2VLCFI7HdyE+xxlDxMKJ6GVf/A+4NkqIl9Te/YjqV/RmxsLKPIYWRD5lyxjAqGfgHV2ZbDCUdXT4AAAAAElFTkSuQmCC');
+    background-size: 100%;
+}
+.leaflet-usermarker-small {
+    width: 17px;
+    height: 17px;
+}
+
+.leaflet-usermarker i.pulse,
+.leaflet-usermarker-small i.pulse {
+    display: block;
+
+    -moz-animation: leaflet-usermarker-pulsate 1.5s ease-in-out infinite;
+    -webkit-animation: leaflet-usermarker-pulsate 1.5s ease-in-out infinite;
+    animation: leaflet-usermarker-pulsate 1.5s ease-in-out infinite;
+    border:1pt solid #fff;
+    /* make a circle */
+    -moz-border-radius:51px;
+    -webkit-border-radius:51px;
+    border-radius:51px;
+    /* multiply the shadows, inside and outside the circle */
+    -moz-box-shadow:inset 0 0 5px #06f, inset 0 0 5px #06f, inset 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f;
+    -webkit-box-shadow:inset 0 0 5px #06f, inset 0 0 5px #06f, inset 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f;
+    box-shadow:inset 0 0 5px #06f, inset 0 0 5px #06f, inset 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f;
+    /* set the ring's new dimension and re-center it */
+    height:61px!important;
+    margin:-14px 0 0 -14px;
+    width:61px!important;
+}
+
+.leaflet-usermarker-small i.pulse {
+    height: 31px !important;
+    width: 31px !important;
+    margin: -7px 0 0 -7px;
+}
