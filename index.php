@@ -10,8 +10,8 @@
   <!-- Site Properities -->
   <title id="hopscotch-title">MAPNUS | Your One Stop Guide!</title>
 
-  <script type="text/javascript" async src="http://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
-  <script type="text/javascript" async src="http://cdn.jsdelivr.net/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
+  <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery/2.1.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="http://mapnus.blob.core.windows.net/wawswebfront/css/hopscotch.css" />
   <link rel="stylesheet" type="text/css" href="http://mapnus.blob.core.windows.net/wawswebfront/css/hopscotch-demo.css" />
@@ -37,10 +37,10 @@
 </head>
 
 <body id="home" style="padding-top:0">
-  <script type="text/javascript" async src="http://mapnus.blob.core.windows.net/wawswebfront/js/semantic.js"></script>
-  <script type='text/javascript' async src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js"></script>
-  <script type='text/javascript' async src="http://mapnus.blob.core.windows.net/wawswebfront/js/modernizr.custom.79639.js"></script>
-  <script type='text/javascript' async src="http://mapnus.blob.core.windows.net/wawswebfront/js/jquery.menu-aim.js"></script>
+  <script type="text/javascript" src="http://mapnus.blob.core.windows.net/wawswebfront/js/semantic.js"></script>
+  <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js"></script>
+  <script type='text/javascript' src="http://mapnus.blob.core.windows.net/wawswebfront/js/modernizr.custom.79639.js"></script>
+  <script type='text/javascript' src="http://mapnus.blob.core.windows.net/wawswebfront/js/jquery.menu-aim.js"></script>
   <script type="text/javascript">
     head.load("http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js",
     "http://mapnus.blob.core.windows.net/wawswebfront/js/leaflet.location-share.js",
@@ -215,8 +215,8 @@
     "http://mapnus.blob.core.windows.net/wawswebfront/js/map.config.js",
     "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js");
   </script>
-  <script type='text/javascript' async src="http://mapnus.blob.core.windows.net/wawswebfront/js/hopscotch.js"></script>
-  <script type='text/javascript' async src="http://mapnus.blob.core.windows.net/wawswebfront/js/hopscotch-demo.js"></script>
+  <script type='text/javascript' src="http://mapnus.blob.core.windows.net/wawswebfront/js/hopscotch.js"></script>
+  <script type='text/javascript' src="http://mapnus.blob.core.windows.net/wawswebfront/js/hopscotch-demo.js"></script>
 
   <div class="ui page grid segment">
     <div class="column" style="height: 5em"></div>
