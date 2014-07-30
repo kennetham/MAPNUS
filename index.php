@@ -113,7 +113,7 @@
           <span>NUS Around!</span>
           <ul class="scrolling dropdown">
             <?php
-              $url = 'http://localhost:3001/api/map_api/location_svc/all';
+              $url = 'http://mapnus-wsapi.cloudapp.net/api/map_api/location_svc/all';
               if (isDomainAvailible($url)) {
                 $ch = curl_init($url);
                 curl_setopt($ch, CURLOPT_TIMEOUT, 5);
