@@ -104,8 +104,8 @@
   .addTo(map);
 
   var marker_icon = L.icon({
-    iconUrl: 'images/pin24.png',
-    iconRetinaUrl: 'images/pin48.png',
+    iconUrl: 'http://mapnus.blob.core.windows.net/wawswebfront/images/pin24.png',
+    iconRetinaUrl: 'http://mapnus.blob.core.windows.net/wawswebfront/images/pin48.png',
     iconSize: [29, 24],
     iconAnchor: [9, 21],
     popupAnchor: [0, -14]
