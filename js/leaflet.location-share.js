@@ -1,4 +1,3 @@
-
 L.LocShare = {}
 var LS = L.LocShare
 
@@ -104,7 +103,7 @@ function copyPrompt() {
                  'M' + '=' +  LS.Send.Message);
 }
 
-function placeMarker( selectedMap ){
+function placeMarker(selectedMap){
 //  var test = LS.Send.Marker._latlng
 //  if ( isFinite(test.lat) && isFinite(test.lng) ){
     if (!LS.Send.Marker._latlng ) {
@@ -115,22 +114,23 @@ function placeMarker( selectedMap ){
         setSendValues( event.target.getLatLng());
         LS.Send.Marker.openPopup();
       });
+
       LS.Send.Marker.bindPopup(LS.Send.Popup);
       LS.Send.Marker.addTo(selectedMap);
     } else {
-      LS.Send.Marker.setLatLng( selectedMap.getCenter() )
+      LS.Send.Marker.setLatLng(selectedMap.getCenter())
     }
     //selectedMap.setView( location , 16 )
     LS.Send.Marker.openPopup();
 //  }
 };
 
-LS.Send.UpdateMessage = function( text ){
+LS.Send.UpdateMessage = function(text){
   var encodedForUrl = encodeURIComponent( text.value );
   LS.Send.Message = encodedForUrl
 }
 
-function setSendValues( result ){
+function setSendValues(result){
   LS.Send.lat = result.lat;
   LS.Send.lng = result.lng;
 }

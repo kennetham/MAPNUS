@@ -16,55 +16,46 @@ var tour = {
     {
       target: 'map',
       title: 'NUS Map',
-      content: 'Displays the map',
+      content: 'There are four controls on the map.<br /><ul><li><i>Zoom Control</i></li><li><i>Search Control</i></li><li><i>Locate Me! Control</i></li><li><i>Overlay Control</i></li></ul><br /><br />Click <i>next</i> to walkthrough the tutorial.',
       placement: 'left'
-
     },
     {
-      target: document.querySelectorAll('#general-use-desc code')[1],
-      title: 'Where to begin',
-      content: 'At the very least, you\'ll need to include these two files in your project to get started.',
-      placement: 'right',
-      yOffset: -20
+      target: 'map',
+      title: 'Zoom Control',
+      content: 'First, the <i><b>Zoom Control</b></i> gives you the control to zoom in / out of the map.',
+      placement: 'left'
     },
     {
-      target: 'my-first-tour-file',
-      placement: 'top',
-      title: 'Define and start your tour',
-      content: 'Once you have Hopscotch on your page, you\'re ready to start making your tour! The biggest part of your tour definition will probably be the tour steps.'
-    },
-    {
-      target: 'start-tour',
-      placement: 'right',
-      title: 'Starting your tour',
-      content: 'After you\'ve created your tour, pass it in to the startTour() method to start it.',
-      yOffset: -25
-    },
-    {
-      target: 'basic-options',
+      target: 'map',
+      title: 'Search Control',
+      content: 'Second, the <i><b>Search Control</b></i> allows you to search for places in NUS.',
       placement: 'left',
-      title: 'Basic step options',
-      content: 'These are the most basic step options: <b>target</b>, <b>title</b>, <b>content</b>, and <b>placement</b>. For some steps, they may be all you need.',
-      arrowOffset: 100,
-      yOffset: -80
+      yOffset: 55
     },
     {
-      target: 'api-methods',
-      placement: 'top',
-      title: 'Hopscotch API methods',
-      content: 'Control your tour programmatically using these methods.',
+      target: 'map',
+      title: 'Locate Me! Control',
+      content: 'Third, the <i><b>Locate Me! Control</b></i> is a GPS feature that pin points your current location!',
+      placement: 'left',
+      yOffset: 85
     },
     {
-      target: 'tour-example',
-      placement: 'top',
-      title: 'This tour\'s code',
-      content: 'This is the JSON for the current tour! Pretty simple, right?',
+      target: 'map',
+      title: 'Overlay Control',
+      content: 'Last, the <i><b>Overlay Control</b></i> allows you to place various sets of overlays on top of the map for better visualization.<br /><br />Click <i>next</i> to <b>continue</b> with the walkthrough.',
+      placement: 'right'
+    },
+    {
+      target: 'dd',
+      title: 'Locations Menu',
+      content: 'This menu shows an overall list of places around NUS and its\' location on the map.<br /><i>Select</i> an item to display the location on the map.',
+      placement: 'top'
     },
     {
       target: 'hopscotch-title',
       placement: 'bottom',
       title: 'You\'re all set!',
-      content: 'Now go and build some great tours!',
+      content: 'End of tour! You\'re all set to go!<br /><b>Start</b> your One Stop NUS Guide now!',
     }
   ],
   showPrevButton: true,

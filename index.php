@@ -21,18 +21,36 @@
     "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css",
     "http://mapnus.blob.core.windows.net/wawswebfront/css/mapnus-homepage.css",
     "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css",
-    "http://mapnus.blob.core.windows.net/wawswebfront/css/leaflet.usermarker.css");
+    "http://mapnus.blob.core.windows.net/wawswebfront/css/leaflet.usermarker.css",
+    "http://mapnus.blob.core.windows.net/wawswebfront/css/leaflet.groupedlayercontrol.css",
+    "http://mapnus.blob.core.windows.net/wawswebfront/css/leaflet-search.css");
   </script>
   <link rel="stylesheet" type="text/css" href="http://mapnus.blob.core.windows.net/wawswebfront/css/customdd-style.css" />
   <noscript><link rel="stylesheet" type="text/css" href="http://mapnus.blob.core.windows.net/wawswebfront/css/noJS.css" /></noscript>
 
+  <link rel='stylesheet' href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css' />
+  <!--[if lt IE 9]>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
+  <![endif]-->
+
   <style>
+    .leaflet-control-locate {
+      border:1px solid rgba(0,0,0,0.4);
+    }
+    .leaflet-control-locate a {
+      background-color:#fff;
+      background-position:-3px, -2px;
+    }
+    .leaflet-control-locate.active a {
+      background-position:-33px -2px;
+    }
+
     #map{width:650px;height:450px}body{font:16px/1.4 "Helvetica Neue",Arial,sans-serif}.ghbtns{position:relative;top:4px;margin-left:5px}a{color:#07f}.mapContainer{border-radius:8px;z-index:5000}.navbar .popover{width:400px;-webkit-border-top-left-radius:0;-webkit-border-bottom-left-radius:0;border-top-left-radius:0;border-bottom-left-radius:0;overflow:hidden}.navbar
     .popover-content{text-align:center}.navbar .popover-content img{height:212px;max-width:250px}.navbar .dropdown-menu{-webkit-border-top-right-radius:0;-webkit-border-bottom-right-radius:0;border-top-right-radius:0;border-bottom-right-radius:0;-webkit-box-shadow:5px 5px 10px rgba(0,0,0,.2);-moz-box-shadow:5px 5px 10px rgba(0,0,0,.2);box-shadow:5px 5px 10px rgba(0,0,0,.2)}.navbar
     .dropdown-menu>li>a:hover{background-image:none;color:#fff;background-color:#0081c2;background-color:rgba(0,129,194,.5)}.navbar .dropdown-menu>li>a.maintainHover{color:#fff;background-color:#0081C2}
   </style>
   <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
+    <script src="http://mapnus.blob.core.windows.net/wawswebfront/js/html5shiv.js"></script>
   <![endif]-->
 </head>
 
@@ -41,16 +59,18 @@
   <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js"></script>
   <script type='text/javascript' src="http://mapnus.blob.core.windows.net/wawswebfront/js/modernizr.custom.79639.js"></script>
   <script type='text/javascript' src="http://mapnus.blob.core.windows.net/wawswebfront/js/jquery.menu-aim.js"></script>
+  <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
   <script type="text/javascript">
-    head.load("http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js",
-    "http://mapnus.blob.core.windows.net/wawswebfront/js/leaflet.location-share.js",
+    head.load("http://mapnus.blob.core.windows.net/wawswebfront/js/leaflet.groupedlayercontrol.js",
+    // "http://mapnus.blob.core.windows.net/wawswebfront/js/leaflet.location-share.js",
     "http://mapnus.blob.core.windows.net/wawswebfront/js/leaflet-heat.js",
     "http://mapnus.blob.core.windows.net/wawswebfront/js/leaflet-hash.js",
     "http://mapnus.blob.core.windows.net/wawswebfront/js/leaflet-providers.js",
     "http://mapnus.blob.core.windows.net/wawswebfront/js/AnimatedMarker.js",
     "http://mapnus.blob.core.windows.net/wawswebfront/js/geoPosition.js",
     "http://mapnus.blob.core.windows.net/wawswebfront/js/map.location.js",
-    "http://mapnus.blob.core.windows.net/wawswebfront/js/leaflet.usermarker.js");
+    "http://mapnus.blob.core.windows.net/wawswebfront/js/leaflet.usermarker.js",
+    "http://mapnus.blob.core.windows.net/wawswebfront/js/leaflet-search.js");
   </script>
   <div class="ui inverted page orange grid masthead segment">
     <div class="column">
@@ -98,13 +118,6 @@
     <div class="row">
       <div class="ui two wide column"></div>
       <div class="twelve wide column">
-        <div class="ui icon input">
-          <input type="text" placeholder="Search..." style="
-          height: 41.5px;
-          width: 812px;
-          ">
-          <i class="search icon"></i>
-        </div>
       </div>
     </div>
     <div class="row">
@@ -210,11 +223,14 @@
       </div>
     </div>
   </div>
+
+  <script type="text/javascript" src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.js'></script>
   <script type="text/javascript">
     head.load("http://mapnus.blob.core.windows.net/wawswebfront/js/jquery.menu-config.js",
     "http://mapnus.blob.core.windows.net/wawswebfront/js/map.config.js",
     "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js");
   </script>
+
   <script type='text/javascript' src="http://mapnus.blob.core.windows.net/wawswebfront/js/hopscotch.js"></script>
   <script type='text/javascript' src="http://mapnus.blob.core.windows.net/wawswebfront/js/hopscotch-demo.js"></script>
 
