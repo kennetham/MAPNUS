@@ -1,8 +1,5 @@
 /* globals hopscotch: false */
 
-/* ============ */
-/* EXAMPLE TOUR */
-/* ============ */
 var tour = {
   id: 'hello-hopscotch',
   steps: [
@@ -16,7 +13,7 @@ var tour = {
     {
       target: 'map',
       title: 'NUS Map',
-      content: 'There are four controls on the map.<br /><ul><li><i>Zoom Control</i></li><li><i>Search Control</i></li><li><i>Locate Me! Control</i></li><li><i>Overlay Control</i></li></ul><br /><br />Click <i>next</i> to walkthrough the tutorial.',
+      content: 'There are four controls on the map.<br /><ul><li><i>Zoom Control</i></li><li><i>Search Control</i></li><li><i>Locate Me! Control</i></li><li><i>Overlay Control</i></li></ul><br />Click <i>next</i> to walkthrough the tutorial.',
       placement: 'left'
     },
     {

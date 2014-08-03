@@ -107,8 +107,8 @@
         <div class="ui eight wide column">
           <div class="ui huge buttons">
             <div class="ui teal button" id="startTourBtn">Show me how</div> <!-- href="javascript:void(0);" onclick="javascript:introJs().setOption('showBullets', false).start();">Show me how</div> -->
-            <div class="or" id="or"></div>
-            <div class="ui red button" id="start" href="javascript:void(0);">Start</div>
+            <!-- <div class="or" id="or"></div>
+            <div class="ui red button" id="start" href="javascript:void(0);">Start</div> -->
           </div>
         </div>
       </div>
