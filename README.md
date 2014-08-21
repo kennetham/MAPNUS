@@ -1,4 +1,4 @@
-MAPNUS WebService
+MAPNUS
 =========
 
 MAPNUS Web Service is an API service that serves MAPNUS Web. It is the backbone of MAPNUS that controls the Data Access Layer to Redis Database, and route handlers for web service calls.
