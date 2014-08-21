@@ -1,13 +1,9 @@
-MAPNUS
+MAPNUS WebService
 =========
 
-MAPNUS aims to provide students with a One Stop Guide around NUS with better visualization and information.
+MAPNUS Web Service is an API service that serves MAPNUS Web. It is the backbone of MAPNUS that controls the Data Access Layer to Redis Database, and route handlers for web service calls.
 
-  - Convenient & Knowledgable
-  - Lightweight
-  - Effective & Efficient
-
-MAPNUS is a lightweight map based application designed specifically for the _National University of Singapore_ that empower students by faciliting a wide range of features to find locations around NUS more effective & efficiently.
+MAPNUS is a lightweight map based application designed specifically for the _National University of Singapore_ that empower students by facilitating a wide range of features to find locations around NUS more effective & efficiently.
 
 Version
 ----
@@ -54,7 +50,7 @@ __Database__ is configured with `master & slave` configuration on `2` Virtual Ma
 
 __Sharding__ allows data replication across the database servers. Should any database fail at any one point, there is a secondary database to support the system.
 
----
+
 Installation
 --------------
 
@@ -89,6 +85,10 @@ Opting to upload SSH Key for authentication will automatically install the SSH K
   * Define your '_Cloud_ _Service_ _DNS_ _Name_', `<cloud_service_dns_name>.cloudapp.net`
   * Region (eg. _Southeast Asia_)
   * Storage Account where the VHD image will be saved to
+  * Availability Set configures `'N'` Virtual Machines to the set for the following reasons:
+    * `99.95% SLA`
+    * `High availability`
+    * `Load Balancing`
   * Endpoints configuration to expose Redis DB ports to public
 
 ![alt text](https://mapnus.blob.core.windows.net/github-readme/images/redisdb_vmstep_04.png "Virtual Machine Configuration")
@@ -97,6 +97,8 @@ Opting to upload SSH Key for authentication will automatically install the SSH K
   Finally, the last step will validate the settings and start your virtual machine.
 
 ![alt text](https://mapnus.blob.core.windows.net/github-readme/images/redisdb_vmstep_05.png "Virtual Machine Configuration")
+
+`The following configurations can be customized for any types of application deployments.`
 
 ---
 
@@ -256,7 +258,6 @@ Once it's deployed, you can validate it by accessing it from the public url
 
 >##### Open your _web browser_ to _http://bitnami-tomcat.cloudapp.net_ to test if it's running!
 
----
 
 ### Compiling Scala Project
 
@@ -273,25 +274,60 @@ mapnus:TomcatApp localuser$ cd target/scala-2.10
 mapnus:scala-2.10 localuser$
 ```
 
----
+
+### Running Scala Locally with sbt
+
+- Open terminal to Project `root` dir
+- Run the following command `sbt`
+
+```console
+mapnus:~ localuser$ cd MAPNUS
+mapnus:MAPNUS localuser$ sbt
+[info] Loading project definition from /home/mapnus/MAPNUS/project/project
+[info] Loading project definition from /home/mapnus/MAPNUS/project
+[info] Set current project to MAPNUS (in build file:/home/mapnus/MAPNUS/)
+> compile
+```
+
+- To `<start>` the web service, run `container:start`
+
+```console
+mapnus:~ localuser$ cd MAPNUS
+mapnus:MAPNUS localuser$ sbt
+[info] Loading project definition from /home/mapnus/MAPNUS/project/project
+[info] Loading project definition from /home/mapnus/MAPNUS/project
+[info] Set current project to MAPNUS (in build file:/home/mapnus/MAPNUS/)
+> container:start
+```
+
+
+- To `<stop>` the web service, run `container:stop`
+
+```console
+mapnus:~ localuser$ cd MAPNUS
+mapnus:MAPNUS localuser$ sbt
+[info] Loading project definition from /home/mapnus/MAPNUS/project/project
+[info] Loading project definition from /home/mapnus/MAPNUS/project
+[info] Set current project to MAPNUS (in build file:/home/mapnus/MAPNUS/)
+> container:stop
+```
+
 
 ### Running our Ruby Automated Scripts
 
-- `automate_db.rb` : runs text data, crunch the data and push to database
+- `dars.rb` : runs text data, crunch the data and push to database
 - Change to our Ruby DB directory
 - Run the following command and output our results to `json.out` file
 
 ```ruby
 mapnus:~ localuser$ cd db
-mapnus:db localuser$ ruby automated_db.rb > json.out
+mapnus:db localuser$ ruby dars.rb > json.out
 ```
 
----
-
 License
-----
+-----------
 
-(The MIT License)
+[MIT](./LICENSE).
 
 Copyright (c) 2014 Kenneth Ham & Jireh Tan.
 

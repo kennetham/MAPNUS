@@ -43,6 +43,18 @@ var tour = {
       placement: 'right'
     },
     {
+      target: 'dd1',
+      title: 'Directions Menu',
+      content: 'This menus displays route directions between two locations.<br /><i>Select</i> and item and click <b>Start</b> above to show you the directions by walking.',
+      placement: 'bottom'
+    },
+    {
+      target: 'start',
+      title: 'Start Control',
+      content: 'This is the <b>Start</b> control.',
+      placement: 'top'
+    },
+    {
       target: 'dd',
       title: 'Locations Menu',
       content: 'This menu shows an overall list of places around NUS and its\' location on the map.<br /><i>Select</i> an item to display the location on the map.',

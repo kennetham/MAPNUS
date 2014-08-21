@@ -16,6 +16,7 @@
   <link rel="stylesheet" type="text/css" href="http://mapnus.blob.core.windows.net/wawswebfront/css/hopscotch.css" />
   <link rel="stylesheet" type="text/css" href="http://mapnus.blob.core.windows.net/wawswebfront/css/hopscotch-demo.css" />
   <link rel="stylesheet" type="text/css" href="http://mapnus.blob.core.windows.net/wawswebfront/css/semantic.css" />
+
   <script type="text/javascript">
     head.load("http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css",
     "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css",
@@ -62,10 +63,10 @@
   <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
   <script type="text/javascript">
     head.load("http://mapnus.blob.core.windows.net/wawswebfront/js/leaflet.groupedlayercontrol.js",
-    // "http://mapnus.blob.core.windows.net/wawswebfront/js/leaflet.location-share.js",
     "http://mapnus.blob.core.windows.net/wawswebfront/js/leaflet-heat.js",
     "http://mapnus.blob.core.windows.net/wawswebfront/js/leaflet-hash.js",
     "http://mapnus.blob.core.windows.net/wawswebfront/js/leaflet-providers.js",
+    "http://mapnus.blob.core.windows.net/wawswebfront/js/Polyline.encoded.js",
     "http://mapnus.blob.core.windows.net/wawswebfront/js/AnimatedMarker.js",
     "http://mapnus.blob.core.windows.net/wawswebfront/js/geoPosition.js",
     "http://mapnus.blob.core.windows.net/wawswebfront/js/map.location.js",
@@ -81,10 +82,10 @@
             Menu
             <i class="dropdown icon"></i>
             <div class="menu">
-              <a class="item">About Us</a>
+              <a class="item">Feedback</a>
             </div>
           </div>
-          <a class="item">About Us</a>
+          <a href="http://amberonyx.cloudapp.net" class="item">Feedback</a>
         </div>
       </div>
 
@@ -220,6 +221,78 @@
         <div id="map"></div>
       </div>
       <div class="ui three wide column">
+        <div class="ui red button" id="start" href="javascript:void(0);">Start</div><br>
+        <div id="dd1" class="wrapper-dropdown-3">
+          <span>Directions (Walk)</span>
+          <ul class="scrolling dropdown">
+            <?php
+              $url = 'http://mapnus-wsapi.cloudapp.net/api/route_api/route_svc/callback';
+              if (isDomainAvailible($url)) {
+                $ch = curl_init($url);
+                curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+                curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                $data = curl_exec($ch);
+                curl_close($ch);
+
+                $json_obj = json_decode($data, true);
+
+                foreach ($json_obj as $json_data => $d_obj) {
+                  $loc_name = str_replace("'s", "\'s", $d_obj["route_desc"]);
+                  echo '<li id="#'. strtolower($d_obj["route_code"]) . '" data-submenu-id="submenu-' . strtolower($d_obj["route_code"]) . '">';
+                  echo '<a href="#' . $d_obj["route_code"] . '" onclick="direction_route(\''.$d_obj["route_encoded"].'\');">';
+                  echo '<i class="icon-map-marker icon-large"></i>' . $d_obj["route_code"] . '</a>';
+                  echo '</li>';
+                }
+              } else {
+                echo 'MAPNUS Web Service is currently <b><font color="red">DOWN</font></b>.<br>';
+                echo 'Please <i>try</i> again later.';
+              }
+            ?>
+          </ul>
+        </div>
+        <script type="text/javascript">
+          function DropDown(el) {
+            this.dd = el;
+            this.placeholder = this.dd.children('span');
+            this.opts = this.dd.find('ul.dropdown > li');
+            this.val = '';
+            this.index = -1;
+            this.initEvents();
+          }
+          DropDown.prototype = {
+            initEvents : function() {
+              var obj = this;
+
+              obj.dd.on('click', function(event){
+                $(this).toggleClass('active');
+                return false;
+              });
+
+              obj.opts.on('click',function(){
+                var opt = $(this);
+                obj.val = opt.text();
+                obj.index = opt.index();
+                obj.placeholder.text(obj.val);
+              });
+            },
+            getValue : function() {
+              return this.val;
+            },
+            getIndex : function() {
+              return this.index;
+            }
+          }
+
+          $(function() {
+            var dd = new DropDown( $('#dd1') );
+
+            $(document).click(function() {
+              // all dropdowns
+              $('.wrapper-dropdown-3').removeClass('active');
+            });
+          });
+        </script>
       </div>
     </div>
   </div>
@@ -231,6 +304,7 @@
     "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js");
   </script>
 
+  <script type='text/javascript' src="http://mapnus.blob.core.windows.net/wawswebfront/js/map.route.js"></script>
   <script type='text/javascript' src="http://mapnus.blob.core.windows.net/wawswebfront/js/hopscotch.js"></script>
   <script type='text/javascript' src="http://mapnus.blob.core.windows.net/wawswebfront/js/hopscotch-demo.js"></script>
 

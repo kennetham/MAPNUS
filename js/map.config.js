@@ -23,7 +23,7 @@ Number.prototype.toRad = function() {
   return this * Math.PI / 180;
 }
 
-var _flag = 1;
+var _flag = 0;
 
 var walk_icon = L.icon({
   iconUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAACvElEQVRYR+2YUYRVURSGZzQiolFPKTL0kEmRUqKHUYzoIWXSaMRQeugpEVEaIjH0MKREKVFKDylRjCJGlHqKMSkiRaQxKaXI9P3cw5rtnHvOunvfcWk2P/vsve9Z311r77XXve1tLd7aW5yvbQ4wNkL/vQeX4cELaDsaQ4fRG49Xm+3BB8DsMEDj9Fe3EuB3YBYGQEt5/lwVstkefA7IRgPzif4K9LdVALsBUZi70Be0u7YXq/I1JQ+uwfpxJLh36Ax6j75VpjILU4Z4Pe89gXYFIArn6ZrcjCkAN2P1FFIqqdd6mRz1EsYCXsbggYpGBSdIV4sFnDbW7tK/gnQo8tokg0tcdCxOBaiDMITuIZuYQ55NDLzwQKYA1CHoQNqLz0qMv2Z+A/pTFTIFoNJHJ7qF9uYYVqoRWHa6n9LfiSqlnRSAuh2Wo59oQQ7gQcZuordIxYPaB6Qtca3MkykAlYTXoakCY9m+W8n8VbTFrHtFX/OFV18M4Hxe/BvJyLYCQBlW+H8YKO3VQdSH5P219bwYAziPFytBn0fa9HkezMJfFsnC+RhA+9JFBYAqEFReVa5eQtJUgIt58dcCN4wwfqRRF6YC3A/A9ToQSiv3G4FMBRgWpiGL9uKq4LBU4k0BqDLrpbH2iP5FdAfppGftJB1dia6WAlC5bdBYzfLePsZumHEdGJX7vzyEsYA6HB9RdoPoGusxAKqsz5rnfvq3ZxPwGMaGjUEl7CcBwGOet9bGdOUNzBagEvUE0hWmFnov4zhE51LtwZ24Y0KsEv9hifc0HR4il03X4iA09l+DIu/pI+Et47LpWmwAFVaFV2FWy9t79vuoqMhSjsuma7GxeJT+uZK9ZwFVSMiTai6brsXGokom/f5QTutBqgnrNV2DqrZ13e0pWTtjulFAj42otXOAUe7zbthYY418/h9e1nUpt3rqQQAAAABJRU5ErkJggg==',
@@ -102,6 +102,42 @@ markers = [];
 var base_layer = L.tileLayer.provider('OpenStreetMap.Mapnik');
 var over_layer = L.tileLayer.provider('OpenStreetMap.Cycle');
 
+// function populate(crowd_density) {
+//   if (crowd_density > 1) {
+//     var address_points = [
+//                   [1.2947, 103.77246],
+//                   [1.29467, 103.77249],
+//                   [1.29466, 103.77241],
+//                   [1.29475, 103.77253],
+//                   [1.29477, 103.77242],
+//                   [1.29477, 103.77259],
+//                   [1.29482, 103.77248],
+//                   [1.29454, 103.77232],
+//                   [1.29455, 103.77245],
+//                   [1.29451, 103.77259],
+//                   [1.298, 103.7712],
+//                   [1.298, 103.77145],
+//                   [1.29801, 103.77151],
+//                   [1.29795, 103.77146]
+//                   ];
+//   } else if(crowd_density > 5) {
+//     var address_points = [
+//                   [1.2947, 103.77246],
+//                   [1.29467, 103.77249],
+//                   [1.29466, 103.77241],
+//                   [1.29475, 103.77253],
+//                   [1.29477, 103.77242],
+//                   [1.29477, 103.77259]
+//                   ];
+//   }
+//   heat_layer = L.heatLayer(address_points,
+//     { radius: 9, blur: 16, gradient:
+//       { 0.2: 'blue', 0.4: 'cyan', 0.5: 'lime', 0.6: 'yellow', 0.8: 'red' }
+//     });
+//   }
+//
+// populate(1.2);
+
 var address_points = [
               [1.2947, 103.77246],
               [1.29467, 103.77249],
@@ -130,13 +166,13 @@ var baseLayers = {
 };
 
 var overlays = {
-  "Heat Map": heat_layer
+  "Toggle (On / Off)": heat_layer
 };
 
 // Overlay layers are grouped
 var grouped_overlays = {
-  "Crowd Density": {
-    "Heat Map": heat_layer
+  "Crowd Density (Heat Map)": {
+    "Toggle (On / Off)": heat_layer
   },
   "Places to Stay": {
     "Halls & Residences": halls
@@ -144,7 +180,7 @@ var grouped_overlays = {
   "Places to Eat": {
     "Restaurants": restaurants,
     "Canteens": canteens,
-    "Fast Foods": fastfoods,
+    "Fast Food": fastfoods,
     "Cafes": cafes
   },
   "Places to Read": {
@@ -176,13 +212,23 @@ map.addControl(new L.Control.Search({ callData: searchMapAjax, text:'Search...',
 var map_hash = new L.Hash(map);
 
 var _locate = L.control.locate({
-	follow: true
+	follow: true,
+  setView: true,
+  strings: {
+      title: "Show me where I am",
+      popup: "You are within {distance} {unit} from this point",
+      outsideMapBoundsMsg: "You seem located outside the boundaries of the map"
+  },
+  locateOptions: {
+      maxZoom: Infinity,
+      watch: true  // if you overwrite this, visualization cannot be updated
+  }
 }).addTo(map);
 
 map.on('startfollowing', function() {
-    map.on('dragstart', _locate.stopFollowing);
+  map.on('dragstart', _locate.stopFollowing);
 }).on('stopfollowing', function() {
-    map.off('dragstart', _locate.stopFollowing);
+  map.off('dragstart', _locate.stopFollowing);
 });
 
 var popup = L.popup();
@@ -194,14 +240,4 @@ function onMapClick(e) {
   .openOn(map);
 }
 
-map.on('click', onMapClick);
-
-function current_location(position) {
-  var latitude = position.coords.latitude;
-  var longitude = position.coords.longitude;
-
-  L.marker([latitude, longitude], { icon: marker_icon })
-  .addTo(map)
-  .bindPopup("You are here")
-  .update();
-}
+// map.on('click', onMapClick);
