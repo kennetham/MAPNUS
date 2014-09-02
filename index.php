@@ -242,7 +242,7 @@
                 foreach ($json_obj as $json_data => $d_obj) {
                   $loc_name = str_replace("'s", "\'s", $d_obj["route_desc"]);
                   echo '<li id="#'. strtolower($d_obj["route_code"]) . '" data-submenu-id="submenu-' . strtolower($d_obj["route_code"]) . '">';
-                  echo '<a href="#' . $d_obj["route_code"] . '" onclick="clear_polyline();dadirection_route(\''.$d_obj["route_encoded"].'\');">';
+                  echo '<a href="#' . $d_obj["route_code"] . '" onclick="clear_polyline();direction_route(\''.$d_obj["route_encoded"].'\');">';
                   echo '<i class="icon-map-marker icon-large"></i>' . $d_obj["route_code"] . '</a>';
                   echo '</li>';
                 }
