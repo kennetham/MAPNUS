@@ -12,7 +12,7 @@ MAPNUS is a lightweight map based application designed specifically for the _Nat
 Version
 ----
 
-0.3
+0.5
 
 Technologies
 -----------
