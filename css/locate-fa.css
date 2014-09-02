@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'locate-fa';
-  src: url('http://mapnus.blob.core.windows.net/wawswebfront/fonts/locate-fa.eot?9201824');
-  src: url('http://mapnus.blob.core.windows.net/wawswebfront/fonts/locate-fa.eot?9201824#iefix') format('embedded-opentype'),
-       url('http://mapnus.blob.core.windows.net/wawswebfront/fonts/locate-fa.woff?9201824') format('woff'),
-       url('http://mapnus.blob.core.windows.net/wawswebfront/fonts/locate-fa.ttf?9201824') format('truetype'),
-       url('http://mapnus.blob.core.windows.net/wawswebfront/fonts/locate-fa.svg?9201824#locate-fa') format('svg');
+  src: url('fonts/locate-fa.eot?9201824');
+  src: url('fonts/locate-fa.eot?9201824#iefix') format('embedded-opentype'),
+       url('fonts/locate-fa.woff?9201824') format('woff'),
+       url('fonts/locate-fa.ttf?9201824') format('truetype'),
+       url('fonts/locate-fa.svg?9201824#locate-fa') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -18,8 +18,8 @@ solution: http://stackoverflow.com/a/21050160/1106908
 {
     @font-face {
         font-family: 'locate-fa';
-        src: url('http://mapnus.blob.core.windows.net/wawswebfront/fonts/locate-fa.eot?9201824');
-        src: url('http://mapnus.blob.core.windows.net/wawswebfront/fonts/locate-fa.svg?9201824#locate-fa') format('svg');
+        src: url('fonts/locate-fa.eot?9201824');
+        src: url('fonts/locate-fa.svg?9201824#locate-fa') format('svg');
         font-weight: normal;
         font-style: normal;
     }

@@ -1,8 +1,8 @@
 /* Compatible with Leaflet 0.7 */
 
-@import url('http://mapnus.blob.core.windows.net/wawswebfront/fonts/locate-fa.woff');
-@import url('http://mapnus.blob.core.windows.net/wawswebfront/css/locate-fa.css');
-@import url('http://mapnus.blob.core.windows.net/wawswebfront/css/animation.css');
+@import url('fonts/locate-fa.woff');
+@import url('css/locate-fa.css');
+@import url('css/animation.css');
 
 .leaflet-touch .leaflet-bar-part-single {
 	-webkit-border-radius: 7px 7px 7px 7px;

@@ -1,7 +1,11 @@
 MAPNUS
 =========
 
-MAPNUS Web Service is an API service that serves MAPNUS Web. It is the backbone of MAPNUS that controls the Data Access Layer to Redis Database, and route handlers for web service calls.
+MAPNUS aims to provide students with a One Stop Guide around NUS with better visualization and information.
+
+  - Convenient & Knowledgable
+  - Lightweight
+  - Effective & Efficient
 
 MAPNUS is a lightweight map based application designed specifically for the _National University of Singapore_ that empower students by facilitating a wide range of features to find locations around NUS more effective & efficiently.
 
@@ -142,7 +146,7 @@ Linux redisdbsg 2.6.32-431.17.1.el6.x86_64 #1 SMP Wed May 7 23:32:49 UTC 2014 x8
 - Run Redis Database with Configuration file
 
 ```console
-[azureuser@redisdbsg]$ sudo redis-server redisconf/redisdb.conf
+[azureuser@redisdbsg]$ sudo /usr/local/bin/redis-server redisconf/redisdb.conf
 ```
 
 >##### You're all set! Redis database is now accessible to the world, run a test to make sure your configurations are working.
@@ -275,53 +279,15 @@ mapnus:scala-2.10 localuser$
 ```
 
 
-### Running Scala Locally with sbt
-
-- Open terminal to Project `root` dir
-- Run the following command `sbt`
-
-```console
-mapnus:~ localuser$ cd MAPNUS
-mapnus:MAPNUS localuser$ sbt
-[info] Loading project definition from /home/mapnus/MAPNUS/project/project
-[info] Loading project definition from /home/mapnus/MAPNUS/project
-[info] Set current project to MAPNUS (in build file:/home/mapnus/MAPNUS/)
-> compile
-```
-
-- To `<start>` the web service, run `container:start`
-
-```console
-mapnus:~ localuser$ cd MAPNUS
-mapnus:MAPNUS localuser$ sbt
-[info] Loading project definition from /home/mapnus/MAPNUS/project/project
-[info] Loading project definition from /home/mapnus/MAPNUS/project
-[info] Set current project to MAPNUS (in build file:/home/mapnus/MAPNUS/)
-> container:start
-```
-
-
-- To `<stop>` the web service, run `container:stop`
-
-```console
-mapnus:~ localuser$ cd MAPNUS
-mapnus:MAPNUS localuser$ sbt
-[info] Loading project definition from /home/mapnus/MAPNUS/project/project
-[info] Loading project definition from /home/mapnus/MAPNUS/project
-[info] Set current project to MAPNUS (in build file:/home/mapnus/MAPNUS/)
-> container:stop
-```
-
-
 ### Running our Ruby Automated Scripts
 
-- `dars.rb` : runs text data, crunch the data and push to database
+- `automate_db.rb` : runs text data, crunch the data and push to database
 - Change to our Ruby DB directory
 - Run the following command and output our results to `json.out` file
 
 ```ruby
 mapnus:~ localuser$ cd db
-mapnus:db localuser$ ruby dars.rb > json.out
+mapnus:db localuser$ ruby automated_db.rb > json.out
 ```
 
 License
