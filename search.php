@@ -1,5 +1,4 @@
 <?php
-
 /*
  * Demo serverside file for Leaflet Search Plugin
  * https://github.com/stefanocudini/leaflet-search
